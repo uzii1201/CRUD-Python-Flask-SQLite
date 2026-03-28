@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Pedidos</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='general.css') }}">
+    </head>
+    <body>
+        <h1>Pedidos</h1>
+
+        <h2>Crear Pedido</h2>
+        <form action="/pedidos/crear" method="post">
+            <label>Cliente</label>
+            <input list="clientes" id="cliente_busqueda" placeholder="Buscar cliente" required>
+            <input type="hidden" name="cliente_id" id="cliente_id">
+            <datalist id="clientes">
+                {% for c in clientes %}
+                <option data-id="{{c.id}}" value="{{c.nombre}}"></option>
+                {% endfor %}
+            </datalist>
+
+            <label>Producto</label>
+            <select name="producto_id" required>
+                {% for p in productos %}
+                <option value="{{p.id}}">{{p.nombre}}</option>
+                {% endfor %}
+            </select>
+
+            <label>Cantidad</label>
+            <input type="number" name="cantidad" min="1" value="1" required>
+
+            <label>Fecha</label>
+            <input type="date" name="fecha" required>
+
+            <button type="submit">Crear Pedido</button>
+        </form>
+
+        <hr>
+
+        <h2>Listado de Pedidos</h2>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Total</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+            </tr>
+            {% for p in pedidos %}
+            <tr>
+                <td>{{p.id}}</td>
+                <td>{{p.cliente}}</td>
+                <td>{{p.producto}}</td>
+                <td>{{p.cantidad}}</td>
+                <td>{{ "%.2f"|format(p.precio) }}</td>
+                <td>{{ "%.2f"|format(p.cantidad * p.precio) }}</td>
+                <td>{{p.fecha}}</td>
+                <td>
+                    <a href="/pedidos/editar/{{p.id}}">Editar</a> |
+                    <a href="/pedidos/eliminar/{{p.id}}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br>
+        <a href="/">Volver</a>
+
+        <script>
+            document.getElementById("cliente_busqueda").addEventListener("input", function(){
+                const valor = this.value;
+                const opciones = document.querySelectorAll("#clientes option");
+                opciones.forEach(function(opcion){
+                    if(opcion.value === valor){
+                        document.getElementById("cliente_id").value = opcion.dataset.id;
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

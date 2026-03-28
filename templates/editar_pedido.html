@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Editar Pedido</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='general.css') }}">
+    </head>
+    <body>
+        <h2>Editar Pedido</h2>
+        <form method="POST">
+            <label>Cliente</label>
+            <select name="cliente_id">
+                {% for c in clientes %}
+                <option value="{{c.id}}" {% if c.id == pedido.cliente_id %}selected{% endif %}>{{c.nombre}}</option>
+                {% endfor %}
+            </select>
+
+            <label>Producto</label>
+            <select name="producto_id">
+                {% for p in productos %}
+                <option value="{{p.id}}" {% if p.id == pedido.producto_id %}selected{% endif %}>{{p.nombre}}</option>
+                {% endfor %}
+            </select>
+
+            <label>Cantidad</label>
+            <input type="number" name="cantidad" min="1" value="{{pedido.cantidad}}" required>
+
+            <label>Fecha</label>
+            <input type="date" name="fecha" value="{{pedido.fecha}}" required>
+
+            <button type="submit">Guardar</button>
+        </form>
+
+        <br>
+        <a href="/pedidos">Volver</a>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Editar cliente</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='general.css') }}">
+    </head>
+
+    <body>
+
+        <h2>Editar cliente</h2>
+
+        <form method="POST">
+
+            <label>Nombre</label>
+            <input
+                name="nombre"
+                value="{{cliente.nombre}}"
+            >
+
+            <label>Email</label>
+            <input
+                name="email"
+                value="{{cliente.email}}"
+            >
+
+            <button type="submit">
+                Guardar
+            </button>
+
+        </form>
+
+        <a href="/clientes">
+            Volver
+        </a>
+
+    </body>
+</html>

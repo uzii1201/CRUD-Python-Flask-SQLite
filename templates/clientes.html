@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Clientes</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='general.css') }}">
+    </head>
+
+    <body>
+
+        <h2>Clientes</h2>
+
+        <form method="POST" action="/clientes/crear">
+
+            <label>Nombre</label>
+            <input name="nombre">
+
+            <label>Email</label>
+            <input name="email">
+
+            <button type="submit">
+                Crear
+            </button>
+
+        </form>
+
+        <h3>Listado</h3>
+
+        <ul>
+
+            {% for c in clientes %}
+
+                <li>
+
+                    {{ c.id }} - {{ c.nombre }} - {{ c.email }}
+
+                    <a href="/clientes/editar/{{c.id}}">
+                        Editar 
+                    </a>
+
+                    <a href="/clientes/eliminar/{{c.id}}">
+                         Eliminar
+                    </a>
+
+                </li>
+
+            {% endfor %}
+
+        </ul>
+
+        <a href="/">Volver</a>
+
+    </body>
+</html>
