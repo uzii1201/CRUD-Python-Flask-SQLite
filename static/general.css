@@ -1,0 +1,140 @@
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+    color: #e2e8f0;
+    margin: 0;
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+h1, h2 {
+    color: #f0f0f0;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #c084fc;
+    padding-left: 1rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem;
+    color: #c084fc;
+}
+
+form {
+    background: rgba(26, 26, 46, 0.95);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    max-width: 500px;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(192, 132, 252, 0.2);
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #a78bfa;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="date"],
+input[list],
+select,
+textarea {
+    width: 100%;
+    padding: 0.625rem 0.75rem;
+    margin-top: 0.25rem;
+    border-radius: 0.5rem;
+    border: 1px solid #2d2d44;
+    background: rgba(15, 15, 26, 0.9);
+    color: #e2e8f0;
+    transition: all 0.2s;
+    font-size: 0.875rem;
+    box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #c084fc;
+    box-shadow: 0 0 0 3px rgba(192, 132, 252, 0.1);
+}
+
+button {
+    margin-top: 1.25rem;
+    padding: 0.625rem 1.25rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: #2d2d44;
+    color: #e2e8f0;
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background: #3d3d5c;
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background: rgba(26, 26, 46, 0.95);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    border: 1px solid rgba(192, 132, 252, 0.2);
+}
+
+th, td {
+    padding: 0.875rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(45, 45, 68, 0.8);
+}
+
+th {
+    background: rgba(15, 15, 26, 0.9);
+    font-weight: 600;
+    color: #c084fc;
+    font-size: 0.875rem;
+}
+
+tr:hover {
+    background: rgba(192, 132, 252, 0.05);
+}
+
+a {
+    color: #a78bfa;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    color: #c084fc;
+    text-decoration: underline;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, #2d2d44, transparent);
+    margin: 2rem 0;
+}
+
